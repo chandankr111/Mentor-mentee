@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model mentor{
+     id   Int    @unique @default(autoincrement())
+     name   String 
+     about   String   @db.VarChar(200)
+     mentorship   profession
+     qualification  String
+     bio   String
+     experience String 
+     
+
+
+}
+
+
+
+enum profession {
+   Fullstack_Development
+   Backend_Development
+   Frontend_Development
+   Machine_Learning
+   Deep_Learning
+   DataBase_Management
+   Dsa
+   Trading
+   System_Design
+   Blockchain
+   Web3
+   Python
+}
